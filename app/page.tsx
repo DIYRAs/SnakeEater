@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CTAButton } from "./UI/components/global/button";
 import Section from "./UI/sections/section";
 import FeatureCard, { PriceCard, TrendingThemeCard, ValueCard } from "./UI/components/home/cards";
+import { Theme, trendingThemes } from "./data/trendingThemes";
 
 export default function Home() {
   const whyUsValue = [
@@ -12,10 +13,6 @@ export default function Home() {
     'Tanpa sampah',
     'Fitur melimpah'
   ]
-
-  const trendingLoop = Array.from({ length: 12 }, (_, i) => (
-    <TrendingThemeCard key={i} title="test" />
-  ))
 
   const CompleteFeatures = [
     "Custom Nama Tamu Undangan",
@@ -135,7 +132,13 @@ export default function Home() {
         subTitle="Pilih tema undangan digitalmu disini!"
         className="gap-y-14">
         <div className="flex flex-wrap items-center justify-center w-full gap-7">
-          {trendingLoop.map((item) => (item))}
+          {trendingThemes.map((theme: Theme, index) => (
+            <TrendingThemeCard
+              key={index}
+              title={theme.name}
+              imgUrl={theme.imgUrl}
+              linkPreview={theme.linkPreview} />
+          ))}
         </div>
 
         <CTAButton text="Lihat tema lainnya" />

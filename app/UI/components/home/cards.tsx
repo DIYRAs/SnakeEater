@@ -21,17 +21,28 @@ export default function FeatureCard({ title }: { title: string }) {
     );
 }
 
-export function TrendingThemeCard({ title }: { title: string }) {
+export function TrendingThemeCard({ title, imgUrl, linkPreview }: { title: string, imgUrl?: string, linkPreview: string }) {
     return (
-        <div style={{ backgroundImage: 'url(ph.png)' }}
-            className="h-[350px] w-[280px] flex items-center group hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden">
-            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out translate-y-[100px] rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/10 backdrop-blur-lg" >
+        <div style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
+            className="h-[350px] w-[280px] flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden">
+            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/40 backdrop-blur-lg" >
                 <p className="tracking-wider text-white text-[16px]">{title}</p>
-                <PreviewBuyBtn />
+                <PreviewBuyBtn linkPreview={linkPreview} theme={title} />
             </div>
         </div>
     )
 }
+// export function TrendingThemeCard({ title, imgUrl, linkPreview }: { title: string, imgUrl?: string, linkPreview: string }) {
+//     return (
+//         <div style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
+//             className="h-[350px] w-[280px] flex items-center group hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden">
+//             <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out translate-y-[100px] rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/10 backdrop-blur-lg" >
+//                 <p className="tracking-wider text-white text-[16px]">{title}</p>
+//                 <PreviewBuyBtn linkPreview={linkPreview} theme={title} />
+//             </div>
+//         </div>
+//     )
+// }
 
 export function PriceCard({ plan, initialPrice, price, features }: { plan: string, initialPrice?: string, price: string, features: string[] }) {
     return (
@@ -62,8 +73,8 @@ export function PriceCard({ plan, initialPrice, price, features }: { plan: strin
             </ul>
 
             <CTAButton
-            text="Pilih Paket →"
-            className="w-full" />
+                text="Pilih Paket →"
+                className="w-full" />
         </div>
     )
 }
