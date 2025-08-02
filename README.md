@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## 📌 About This Project
 
-This project was created as part of a **team assignment**.  
+This project was created as part of a **SnakeEater team**.  
 All team members are free to use, modify, and continue developing this code for learning and collaboration purposes.
 
 ## Getting Started
