@@ -1,10 +1,11 @@
 import Link from "next/link"
 
-export function CTAButton({ text, className }: { text: string, className?: string }) {
+export function CTAButton({ href = 'wa.me/+62882021235692', text, className, colors = 'bg-green-950 text-white' }: { href?: string, text: string, className?: string, colors?: string }) {
     return (
-        <button className={`px-5 py-2 text-white rounded-full cursor-pointer px bg-green-950 ${className}`}>
+        <Link href={href}
+            className={`px-5 py-3 rounded-full cursor-pointer px ${colors} ${className}`}>
             {text}
-        </button>
+        </Link>
     )
 }
 

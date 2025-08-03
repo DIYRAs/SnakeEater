@@ -33,10 +33,10 @@ export default function Home() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen py-10 text-black bg-white">
+    <div className="relative flex flex-col items-center justify-center w-full min-h-screen py-10 text-black bg-white">
       {/* HERO SECTION */}
       <section id="hero"
-        className="flex flex-col-reverse items-center justify-center w-full min-h-screen pt-16 md:pt-0 gap-x-20 gap-y-10 md:flex-row md:px-14">
+        className="flex flex-col-reverse items-center justify-center w-full min-h-screen px-10 pt-16 md:pt-0 gap-x-20 gap-y-10 md:flex-row md:px-14">
         <Image
           className="border-2 grow rounded-4xl"
           src={'/ph.png'}
@@ -66,10 +66,9 @@ export default function Home() {
       </section>
 
       {/* WHY US SECTION */}
-      <Section
-        id="why-us"
+      <Section id="whyUs"
         title="Kenapa Harus Menggunakan Undangan Digital?"
-        className="" >
+        className="px-4" >
 
         <ul className="flex max-w-[700px] mt-6 mb-24 flex-wrap items-center justify-center *:before:content-['✅'] gap-x-5 gap-y-1">
           {whyUsValue.map((item, i) => (
@@ -96,8 +95,7 @@ export default function Home() {
       </Section>
 
       {/* FEATURED SECTION */}
-      <Section
-        id="feature"
+      <Section id="feature"
         title="Fitur Lengkap"
         subTitle="Undangan Digital Dengan Fitur yang Lengkap hanya disini" >
 
@@ -126,8 +124,7 @@ export default function Home() {
       </Section>
 
       {/* TRENDING THEME SECTION */}
-      <Section
-        id="trending"
+      <Section id="trending"
         title="Trending Themes!"
         subTitle="Pilih tema undangan digitalmu disini!"
         className="gap-y-14">
@@ -145,8 +142,8 @@ export default function Home() {
       </Section>
 
       {/* ADDITIONAL SECTION */}
-      <section
-        className="flex flex-col items-center justify-center w-full px-8 py-12 md:flex-row gap-x-32 gap-y-12">
+      <section id="allFeatures"
+        className="flex flex-col items-center justify-center w-full px-10 py-12 md:px-8 md:flex-row gap-x-32 gap-y-12">
         <Image
           src={'/ph.png'}
           alt="the complete version of digital invitation"
@@ -172,8 +169,7 @@ export default function Home() {
       </section>
 
       {/* HOW TO ORDER SECTION */}
-      <Section
-        id="howToOrder"
+      <Section id="howToOrder"
         title="Cara Pesan Undangan Digital"
         subTitle="Proses order sangat mudah hanya tiga langkah sederhana"
         className="mt-10 gap-y-12 bg-emerald-300">
@@ -193,8 +189,7 @@ export default function Home() {
       </Section>
 
       {/* PRICE LIST SECTION */}
-      <Section
-        id="priceList"
+      <Section id="priceList"
         title="Daftar Harga"
         subTitle="Pilih Paket yang sesuai dengan kebutuhanmu, chat Admin untuk konsultasi gratis!">
 

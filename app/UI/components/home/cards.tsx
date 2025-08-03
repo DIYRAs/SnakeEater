@@ -21,10 +21,10 @@ export default function FeatureCard({ title }: { title: string }) {
     );
 }
 
-export function TrendingThemeCard({ title, imgUrl, linkPreview }: { title: string, imgUrl?: string, linkPreview: string }) {
+export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { title: string, imgUrl?: string, linkPreview: string, className?: string }) {
     return (
         <div style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
-            className="h-[350px] w-[280px] flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden">
+            className={`h-[250px] w-[180px] md:h-[350px] md:w-[280px] flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden ${className}`}>
             <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/40 backdrop-blur-lg" >
                 <p className="tracking-wider text-white text-[16px]">{title}</p>
                 <PreviewBuyBtn linkPreview={linkPreview} theme={title} />
