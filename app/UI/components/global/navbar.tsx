@@ -10,7 +10,7 @@ export function Navbar() {
     const { scrollY } = useScroll()
     const [scrollDir, setScrollDir] = useState('up')
     useMotionValueEvent(scrollY, 'change', (current) => {
-        const diff = current - scrollY.getPrevious()
+        const diff = current - (scrollY.getPrevious() ?? 0)
         setScrollDir(diff > 0 ? 'down' : 'up')
     })
 
