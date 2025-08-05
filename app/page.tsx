@@ -133,14 +133,14 @@ export default function Home() {
             <TrendingThemeCard
               key={index}
               title={theme.name}
-              imgUrl={theme.imgUrl}
-              linkPreview={theme.linkPreview} />
+              imgUrl={theme.image_url}
+              linkPreview={theme.preview_url} />
           ))}
         </div>
 
-        <CTAButton 
-        href="/theme"
-        text="Lihat tema lainnya" />
+        <CTAButton
+          href="/theme"
+          text="Lihat tema lainnya" />
       </Section>
 
       {/* ADDITIONAL SECTION */}

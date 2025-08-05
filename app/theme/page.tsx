@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { Theme, trendingThemes } from "../data/trendingThemes";
+import { Theme } from "../data/trendingThemes";
 import { TrendingThemeCard } from "../UI/components/home/cards";
 
 // async function getThemes() {
@@ -61,7 +61,7 @@ export default function ThemePage() {
 
             <section className="flex flex-wrap items-center justify-center w-full gap-3 p-2 md:gap-7">
                 {themes.length > 0 ? (
-                    themes.map((theme: any) => (
+                    themes.map((theme: Theme) => (
                         <TrendingThemeCard
                             key={theme.id}
                             title={theme.name}
