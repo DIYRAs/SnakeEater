@@ -59,7 +59,7 @@ export default function ThemePage() {
                 ))}
             </section>
 
-            <section className="flex flex-wrap items-center justify-center w-full gap-3 p-2 md:gap-7">
+            <section className="flex flex-wrap items-center justify-center w-full gap-3 py-3 md:gap-7">
                 {themes.length > 0 ? (
                     themes.map((theme: Theme) => (
                         <TrendingThemeCard
