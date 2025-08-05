@@ -1,10 +1,14 @@
 import { CTAButton, PreviewBuyBtn } from "../global/button";
 import Image from "next/image";
+import { ReactElement } from "react";
 
-export function ValueCard({ title, text }: { title: string, text: string }) {
+export function ValueCard({ title, text, icon }: { title: string, text: string, icon?: ReactElement }) {
     return (
-        <div className="px-8 py-3 bg-gray-50/70 shadow-sm shadow-black/50 min-h-[190px] md:w-[380px] w-full rounded-2xl text-start space-y-3">
-            <p className="text-2xl font-bold">{title}</p>
+        <div className="px-8 py-3 bg-gray-50/70 min-h-[190px] md:w-[380px] w-full rounded-2xl text-start space-y-2">
+            <span className="text-5xl">
+                {icon}
+            </span>
+            <p className="mt-3 text-2xl font-bold">{title}</p>
             <p>
                 {text}
             </p>
@@ -12,10 +16,12 @@ export function ValueCard({ title, text }: { title: string, text: string }) {
     )
 }
 
-export default function FeatureCard({ title }: { title: string }) {
+export default function FeatureCard({ title, icon }: { title: string, icon?: ReactElement }) {
     return (
         <div className="flex flex-col items-center w-full h-full md:h-max md:w-[250px] gap-3 px-3 py-6 bg-emerald-200/70 rounded-xl">
-            <div className="w-12 h-12 bg-black"></div>
+            <span className="text-5xl">
+                {icon}
+            </span>
             <p className="">{title}</p>
         </div>
     );

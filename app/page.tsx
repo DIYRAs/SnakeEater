@@ -3,15 +3,22 @@ import { CTAButton } from "./UI/components/global/button";
 import Section from "./UI/sections/section";
 import FeatureCard, { PriceCard, TrendingThemeCard, ValueCard } from "./UI/components/home/cards";
 import { Theme, trendingThemes } from "./data/trendingThemes";
+import { SiGooglemaps, SiTinyletter } from "react-icons/si";
+import { TbPencilHeart, TbPhotoHeart } from "react-icons/tb";
+import { MdCardGiftcard, MdOutlineLibraryBooks } from "react-icons/md";
+import { FaMusic, FaRegIdCard, FaYoutube } from "react-icons/fa6";
+import { BsChatHeart } from "react-icons/bs";
+import { PiClockCountdownFill, PiScreencastFill } from "react-icons/pi";
+import { IoQrCodeOutline } from "react-icons/io5";
 
 export default function Home() {
   const whyUsValue = [
-    'Hemat biaya, waktu, dan tenaga',
-    'Lebih Praktis dan efisien',
-    'Bisa diakses dimana saja dan kapan saja',
-    'Ramah lingkungan',
     'Tanpa sampah',
-    'Fitur melimpah'
+    'Fitur melimpah',
+    'Ramah lingkungan',
+    'Lebih Praktis dan efisien',
+    'Hemat biaya, waktu, dan tenaga',
+    'Bisa diakses dimana saja dan kapan saja',
   ]
 
   const CompleteFeatures = [
@@ -70,7 +77,7 @@ export default function Home() {
         title="Kenapa Harus Menggunakan Undangan Digital?"
         className="px-4" >
 
-        <ul className="flex max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-center justify-center *:before:content-['✅'] gap-x-5 gap-y-1">
+        <ul className="flex flex-col md:flex-row text-start max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-start justify-center md:items-center *:before:content-['✅'] gap-x-5 gap-y-1">
           {whyUsValue.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -78,16 +85,19 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center justify-center gap-5 *:transition *:active:-translate-y-3 *:hover:-translate-y-3 w-full">
           <ValueCard
+            icon={<SiTinyletter />}
             title="Beragam Pilihan Tema"
             text="Pilih tema favoritmu dari puluhan tema dan bisa kamu custom sendiri,
             mau ganti background dengan foto prewed? atau ubah warna tulisan? Bisa!." />
 
           <ValueCard
+            icon={<TbPencilHeart />}
             title="Custome Nama Tamu"
             text="Ngundang teman sebaya atau yang lebih tua gak perlu hawatir. Tetap sopan
             dengan undangan digital karena kamu bisa kirim undangan dengan nama tamu." />
 
           <ValueCard
+            icon={<MdOutlineLibraryBooks />}
             title="Konfirmasi Kehadiran"
             text="Kini kamu bisa mengetahui berapa jumlah tamu yang hadir atau tidak, 
             sehingga bisa mengurangi makanan sisa yang tidak termakan." />
@@ -101,24 +111,34 @@ export default function Home() {
 
         <div className="grid grid-cols-2 gap-5 mt-10 md:flex md:flex-wrap px-5 md:items-center md:justify-center place-items-center *:transition *:hover:-translate-y-3 *:active:-translate-y-3">
           <FeatureCard
+            icon={<FaRegIdCard />}
             title="Custom Nama Tamu" />
           <FeatureCard
+            icon={<FaMusic />}
             title="Custom Musik Latar" />
           <FeatureCard
+            icon={<BsChatHeart />}
             title="RSVP & Ucapan" />
           <FeatureCard
+            icon={<MdCardGiftcard />}
             title="Amplop Digital" />
           <FeatureCard
+            icon={<PiClockCountdownFill />}
             title="Countdown Timer" />
           <FeatureCard
+            icon={<TbPhotoHeart />}
             title="Galeri Foto & Video" />
           <FeatureCard
+            icon={<SiGooglemaps />}
             title="Integrasi Google Maps" />
           <FeatureCard
+            icon={<FaYoutube />}
             title="Info Live Streaming" />
           <FeatureCard
+            icon={<IoQrCodeOutline />}
             title="QR Code Checkin Acara" />
           <FeatureCard
+            icon={<PiScreencastFill />}
             title="Layar Sapa Real Time" />
         </div>
       </Section>
