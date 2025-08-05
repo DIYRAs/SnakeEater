@@ -12,9 +12,9 @@ export function CTAButton({ href = 'wa.me/+62882021235692', text, className, col
 
 export function PreviewBuyBtn({ linkPreview, theme }: { linkPreview: string, theme: string }) {
     return (
-        <div className="flex items-center justify-center w-full gap-3 *:rounded-md *:px-2 *:py-1 *:cursor-pointer">
+        <div className="flex flex-wrap items-center justify-center w-full gap-3 *:rounded-md *:px-2 *:py-1 *:cursor-pointer *:text-center">
             <Link
-                className="cursor-pointer grow bg-zinc-400/60 text-zinc-800"
+                className="cursor-pointer grow bg-zinc-200 text-zinc-800"
                 href={linkPreview}
                 target="_blank"
                 rel="noopener noreferrer">

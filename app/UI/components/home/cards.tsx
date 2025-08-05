@@ -21,12 +21,17 @@ export default function FeatureCard({ title }: { title: string }) {
     );
 }
 
-export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { title: string, imgUrl?: string, linkPreview: string, className?: string }) {
+export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { title: string, imgUrl: string, linkPreview: string, className?: string }) {
     return (
         <div
-            style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
-            className={`h-[250px] w-42 md:h-[350px] md:w-64 flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden ${className}`}>
-            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/40 backdrop-blur-lg" >
+            className={`h-[300px] relative w-40 md:h-[350px] md:w-64 flex items-center hover:scale-95 transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
+            <Image
+                src={imgUrl}
+                alt={`Preview undangan ${title}`}
+                height={300}
+                width={150}
+                className="object-cover object-center w-full h-full" />
+            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg bg-zinc-800 group-hover:translate-y-0 gap-y-2 backdrop-blur-lg" >
                 <p className="tracking-wider text-white text-[16px]">{title}</p>
                 <PreviewBuyBtn linkPreview={linkPreview} theme={title} />
             </div>

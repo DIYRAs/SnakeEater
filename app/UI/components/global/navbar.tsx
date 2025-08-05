@@ -43,7 +43,7 @@ export function Navbar() {
                             SnakeEater
                         </p>
                     </div>
-                    <div>
+                    <div className="md:hidden">
                         <p className="font-bold">MENU</p>
                     </div>
                 </div>
