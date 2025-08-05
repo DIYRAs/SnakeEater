@@ -3,7 +3,7 @@ import Link from "next/link"
 export function CTAButton({ href = 'wa.me/+62882021235692', text, className, colors = 'bg-green-950 text-white' }: { href?: string, text: string, className?: string, colors?: string }) {
     return (
         <Link href={href}
-            className={`px-2 py-2 text-xs md:text-[16px] md:px-4 rounded-full cursor-pointer px ${colors} ${className}
+            className={`px-4 py-2 text-[16px] md:text-[16px] md:px-4 rounded-full cursor-pointer px ${colors} ${className}
             transition hover:-translate-y-1 active:-translate-y-1`}>
             {text}
         </Link>
