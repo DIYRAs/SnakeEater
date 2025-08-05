@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function ValueCard({ title, text }: { title: string, text: string }) {
     return (
-        <div className="px-8 py-3 bg-gray-50/70 shadow-sm shadow-black/50 min-h-[190px] w-[380px] rounded-2xl text-start space-y-3">
+        <div className="px-8 py-3 bg-gray-50/70 shadow-sm shadow-black/50 min-h-[190px] md:w-[380px] w-full rounded-2xl text-start space-y-3">
             <p className="text-2xl font-bold">{title}</p>
             <p>
                 {text}
@@ -23,8 +23,9 @@ export default function FeatureCard({ title }: { title: string }) {
 
 export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { title: string, imgUrl?: string, linkPreview: string, className?: string }) {
     return (
-        <div style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
-            className={`h-[250px] w-[180px] md:h-[350px] md:w-[280px] flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden ${className}`}>
+        <div
+            style={{ backgroundImage: `url(${imgUrl || '/ph.png'})` }}
+            className={`h-[250px] w-42 md:h-[350px] md:w-64 flex items-center hover:scale-95 transition justify-end bg-center bg-cover flex-col rounded-lg overflow-hidden ${className}`}>
             <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg group-hover:translate-y-0 gap-y-2 bg-black/40 backdrop-blur-lg" >
                 <p className="tracking-wider text-white text-[16px]">{title}</p>
                 <PreviewBuyBtn linkPreview={linkPreview} theme={title} />

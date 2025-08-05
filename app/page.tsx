@@ -46,13 +46,13 @@ export default function Home() {
           priority />
 
         <div className="space-y-5 grow">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             Miliki Undangan Digital Website Kekinian Dengan <span className="bg-emerald-400 px-0.5">
               Harga dan Kualitas Terbaik
             </span>
           </h1>
 
-          <p className="text-justify">
+          <p className="text-sm md:text-md md:text-justify">
             Merencanakan pernikahan, ulang tahun, syukuran, dan acara lainnya
             bisa menjadi pengalaman yang menyenangkan sekaligus menegangkan.
             Solusinya yaitu menggunakan undangan digital berbentuk website yang
@@ -70,13 +70,13 @@ export default function Home() {
         title="Kenapa Harus Menggunakan Undangan Digital?"
         className="px-4" >
 
-        <ul className="flex max-w-[700px] mt-6 mb-24 flex-wrap items-center justify-center *:before:content-['✅'] gap-x-5 gap-y-1">
+        <ul className="flex max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-center justify-center *:before:content-['✅'] gap-x-5 gap-y-1">
           {whyUsValue.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap items-center justify-center gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-5 *:transition *:active:-translate-y-3 *:hover:-translate-y-3 w-full">
           <ValueCard
             title="Beragam Pilihan Tema"
             text="Pilih tema favoritmu dari puluhan tema dan bisa kamu custom sendiri,
@@ -99,7 +99,7 @@ export default function Home() {
         title="Fitur Lengkap"
         subTitle="Undangan Digital Dengan Fitur yang Lengkap hanya disini" >
 
-        <div className="grid grid-cols-2 gap-5 mt-10 md:flex md:flex-wrap md:items-center md:justify-center place-items-center">
+        <div className="grid grid-cols-2 gap-5 mt-10 md:flex md:flex-wrap px-5 md:items-center md:justify-center place-items-center *:transition *:hover:-translate-y-3 *:active:-translate-y-3">
           <FeatureCard
             title="Custom Nama Tamu" />
           <FeatureCard
@@ -128,7 +128,7 @@ export default function Home() {
         title="Trending Themes!"
         subTitle="Pilih tema undangan digitalmu disini!"
         className="gap-y-14">
-        <div className="flex flex-wrap items-center justify-center w-full gap-7">
+        <div className="flex flex-wrap items-center justify-center w-full gap-3 md:gap-7">
           {trendingThemes.map((theme: Theme, index) => (
             <TrendingThemeCard
               key={index}
@@ -138,7 +138,9 @@ export default function Home() {
           ))}
         </div>
 
-        <CTAButton text="Lihat tema lainnya" />
+        <CTAButton 
+        href="/theme"
+        text="Lihat tema lainnya" />
       </Section>
 
       {/* ADDITIONAL SECTION */}
@@ -172,7 +174,7 @@ export default function Home() {
       <Section id="howToOrder"
         title="Cara Pesan Undangan Digital"
         subTitle="Proses order sangat mudah hanya tiga langkah sederhana"
-        className="mt-10 gap-y-12 bg-emerald-300">
+        className="px-5 mt-10 gap-y-12 bg-emerald-300">
 
         <div className="flex flex-wrap items-center justify-center w-full gap-5">
           <ValueCard
@@ -191,7 +193,8 @@ export default function Home() {
       {/* PRICE LIST SECTION */}
       <Section id="priceList"
         title="Daftar Harga"
-        subTitle="Pilih Paket yang sesuai dengan kebutuhanmu, chat Admin untuk konsultasi gratis!">
+        subTitle="Pilih Paket yang sesuai dengan kebutuhanmu, chat Admin untuk konsultasi gratis!"
+        className="px-5">
 
         <div className="flex flex-wrap items-start justify-center gap-6 mt-12">
           <PriceCard
