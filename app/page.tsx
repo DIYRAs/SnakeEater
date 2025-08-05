@@ -77,7 +77,7 @@ export default function Home() {
         title="Kenapa Harus Menggunakan Undangan Digital?"
         className="px-4" >
 
-        <ul className="flex flex-col md:flex-row text-start max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-start justify-center md:items-center *:before:content-['✅'] gap-x-5 gap-y-1">
+        <ul className="flex flex-col md:flex-row text-start max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-start justify-center md:items-center *:before:content-['✅'] *:before:mr-1 gap-x-5 gap-y-1">
           {whyUsValue.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
