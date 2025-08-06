@@ -11,14 +11,14 @@ export default function AdminUpload() {
 
     const [data, setData] = useState<{ message?: string } | null>(null)
     const [isLoading, setIsLoading] = useState(false)
-    const [category, setCategory] = useState(() => {
-        return localStorage.getItem('category')?.toString() ?? ''
-    })
+    const [category, setCategory] = useState('')
 
 
     useEffect(() => {
-        const selected = localStorage.getItem('category')?.toString() ?? ''
-        setCategory(selected)
+        if (typeof window !== 'undefined') {
+            const selected = localStorage.getItem('category')?.toString() ?? ''
+            setCategory(selected)
+        }
     }, [])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
