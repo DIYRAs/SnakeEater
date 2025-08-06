@@ -56,7 +56,7 @@ export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { t
 //     )
 // }
 
-export function PriceCard({ plan, initialPrice, price, features }: { plan: string, initialPrice?: string, price: string, features: string[] }) {
+export function PriceCard({ plan, initialPrice, price, features, href }: { plan: string, initialPrice?: string, price: string, features: string[], href?: string }) {
     return (
         <div className="flex flex-col items-center justify-center px-5 py-4 border border-black/50 gap-y-5 rounded-2xl">
             <p className="text-xl font-semibold tracking-wider text-center text-black/80">
@@ -86,7 +86,8 @@ export function PriceCard({ plan, initialPrice, price, features }: { plan: strin
 
             <CTAButton
                 text="Pilih Paket →"
-                className="w-full" />
+                className="w-full"
+                href={href} />
         </div>
     )
 }
