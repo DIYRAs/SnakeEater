@@ -17,6 +17,13 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const { name, imageUrl, previewUrl, category } = await req.json()
 
+    if (!name || !imageUrl || !previewUrl) {
+        return NextResponse.json(
+            { message: 'Isi dulu lah' },
+            { status: 400 }
+        )
+    }
+
     const checkDuplicate = await pool.query(
         'SELECT * FROM themes WHERE LOWER(name) = LOWER($1) OR image_url = $2 OR preview_url = $3',
         [name, imageUrl, previewUrl]
