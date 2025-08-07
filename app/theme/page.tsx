@@ -93,8 +93,8 @@ export default function ThemePage() {
                         <TrendingThemeCard
                             key={theme.id}
                             title={theme.name}
-                            imgUrl={theme.imageUrl}
-                            linkPreview={theme?.previewUrl || '_blank'} />
+                            imgUrl={theme.imageurl}
+                            linkPreview={theme?.previewurl || '/themes'} />
                     ))
                 ) : (
                     <p className="text-3xl italic font-semibold">Belum ada tema</p>

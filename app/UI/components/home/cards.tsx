@@ -39,7 +39,7 @@ export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { t
                 height={300}
                 width={150}
                 className="object-cover object-center w-full h-full" />
-            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg bg-zinc-800 group-hover:translate-y-0 gap-y-2 backdrop-blur-lg" >
+            <div className="flex flex-col items-start justify-center w-full p-4 pt-3 transition-all duration-300 ease-in-out rounded-b-lg bg-zinc-800 group-hover:translate-y-0 gap-y-2" >
                 <p className="tracking-wider text-white text-[16px]">{title}</p>
                 <PreviewBuyBtn linkPreview={linkPreview} theme={title} />
             </div>

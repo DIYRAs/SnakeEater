@@ -153,8 +153,8 @@ export default function Home() {
             <TrendingThemeCard
               key={index}
               title={theme.name}
-              imgUrl={theme.imageUrl}
-              linkPreview={theme.previewUrl} />
+              imgUrl={theme.imageurl}
+              linkPreview={theme.previewurl} />
           ))}
         </div>
 
