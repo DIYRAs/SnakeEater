@@ -32,7 +32,9 @@ export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { t
         <div
             className={`h-[300px] relative w-40 md:h-[350px] md:w-64 flex items-center hover:scale-95 transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
             <Image
-                src={imgUrl}
+                src={imgUrl ?? '/snakeeater-logo.webp'}
+                placeholder="blur"
+                blurDataURL="/snakeeater-logo.webp"
                 alt={`Preview undangan ${title}`}
                 height={300}
                 width={150}
