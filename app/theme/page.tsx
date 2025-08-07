@@ -44,6 +44,7 @@ export default function ThemePage() {
 
             try {
                 const data = await res.json()
+                console.log(data)
                 setThemes(data)
                 setIsLoading(false)
             } catch (err) {
@@ -92,8 +93,8 @@ export default function ThemePage() {
                         <TrendingThemeCard
                             key={theme.id}
                             title={theme.name}
-                            imgUrl={theme.image_url}
-                            linkPreview={theme.preview_url} />
+                            imgUrl={theme.imageUrl}
+                            linkPreview={theme?.previewUrl || '_blank'} />
                     ))
                 ) : (
                     <p className="text-3xl italic font-semibold">Belum ada tema</p>

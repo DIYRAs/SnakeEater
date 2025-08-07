@@ -56,7 +56,7 @@ export default function AdminUpload() {
 
     return (
         <div className="flex flex-col items-center w-full min-h-screen py-10 text-black bg-zinc-300">
-            <h1 className="font-mono text-4xl font-semibold">
+            <h1 className="mt-10 font-mono text-4xl font-semibold">
                 HALO, <br />
                 Isi lah data undangannya. Ty.
             </h1>
