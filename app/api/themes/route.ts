@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
     const category = searchParams.get('category')
-    const search = searchParams.get('search')
+    const search = searchParams.get('search')?.trim()
 
     const isSearch = search && search.trim() !== ''
     const isCategory = category && category !== 'Semua Tema'
