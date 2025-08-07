@@ -64,7 +64,7 @@ export function PriceCard({ plan, initialPrice, price, features, href }: { plan:
             </p>
 
             <Image
-                src={'/ph.png'}
+                src={'/snakeeater-logo.webp'}
                 alt={`the photo of ${plan} package`}
                 height={300}
                 width={300}
