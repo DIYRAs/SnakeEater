@@ -15,8 +15,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SnakeEater",
-  description: "A group of digital invitation seller",
+  description: "Sebuah grup penyedia undangan digital kreatif untuk berbagai acara spesial Anda.",
+  openGraph: {
+    title: 'SnakeEater',
+    description: 'Kami adalah tim kreatif yang menyediakan layanan pembuatan undangan digital menarik, elegan, dan mudah dibagikan.',
+    images: {
+      url: '/snakeeater-logo.png',
+      width: 1200,
+      height: 630,
+      alt: 'Logo SnakeEater group'
+    }
+  }
 };
+
 
 export default function RootLayout({
   children,

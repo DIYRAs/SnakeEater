@@ -33,7 +33,7 @@ export function Navbar() {
                     className="flex items-center justify-center gap-x-3 md:gap-x-5">
                     <div className="items-center justify-center hidden gap-x-3 md:gap-x-5 md:flex">
                         <Image
-                            src={'/ph.png'}
+                            src={'/snakeeater-logo.webp'}
                             alt="SnakeEater logo"
                             height={50}
                             width={50}
@@ -51,6 +51,9 @@ export function Navbar() {
                 <ul className="items-center justify-center gap-x-8 
             hidden md:flex
             *:text-lg *:cursor-pointer *:hover:scale-95 *:hover:text-emerald-200 *:transition-all *:duration-100 *:linear">
+                    <li>
+                        <Link href={'/'}>Beranda</Link>
+                    </li>
                     <li>
                         <Link href={'/theme'}>Tema</Link>
                     </li>
@@ -91,6 +94,9 @@ export function Navbar() {
 
                     <ul className="items-center justify-center gap-y-8 flex flex-col
             *:text-lg *:cursor-pointer *:hover:scale-95 *:hover:text-emerald-200 *:transition-all *:duration-100 *:linear">
+                        <li>
+                            <Link href={'/'}>Beranda</Link>
+                        </li>
                         <li>
                             <Link href={'/theme'}>Tema</Link>
                         </li>
