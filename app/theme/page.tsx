@@ -1,28 +1,54 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Theme } from "../data/trendingThemes";
 import { TrendingThemeCard } from "../UI/components/home/cards";
 
-// async function getThemes() {
-//     const res = await fetch('http://localhost:3000/api/themes', { cache: 'no-store' })
-//     return res.json()
-// }
-
 export default function ThemePage() {
-    // const themes = await getThemes()
     const [isLoading, setIsLoading] = useState(false)
     const [themes, setThemes] = useState([])
     const [category, setCategory] = useState('Semua Tema')
 
+    const abortControllerRef = useRef<AbortController | null>(null)
+
+    const searchThemes = async (search: string) => {
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort()
+        }
+
+        const controller = new AbortController()
+        abortControllerRef.current = controller
+
+        const query = category === 'Semua Tema' ? `?search=${encodeURIComponent(search)}` :
+            `?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}`
+
+        try {
+            const res = await fetch(`/api/themes${query}`, { cache: 'no-store', signal: controller.signal })
+            const data = await res.json()
+            setThemes(data)
+        } catch (err) {
+            if (err instanceof DOMException && err.name === 'AbortError') {
+                return
+            }
+
+            console.error('fetch error: ', err)
+        }
+    }
+
     useEffect(() => {
         const fetchThemes = async () => {
             setIsLoading(true)
-            const query = category === 'Semua Tema' ? '' : `?category=${encodeURIComponent(category)}`
-            const res = await fetch(`/api/themes${query}`)
-            const data = await res.json()
-            setThemes(data)
-            setIsLoading(false)
+            const query = category === 'Semua Tema' ? '' :
+                `?category=${encodeURIComponent(category)}`
+            const res = await fetch(`/api/themes${query}`, { cache: 'no-store' })
+
+            try {
+                const data = await res.json()
+                setThemes(data)
+                setIsLoading(false)
+            } catch (err) {
+                console.error('fetch error: ', err);
+            }
         }
         fetchThemes()
     }, [category])
@@ -43,7 +69,8 @@ export default function ThemePage() {
                 <h3>
                     Pilih tema undangan sesuai kebutuhanmu acaramu
                 </h3>
-                <input type="text"
+                <input onChange={(e) => { searchThemes(e.currentTarget.value) }}
+                    type="text"
                     placeholder="Cari Tema: Contoh Cinnamoroll, Aysha, Peony, ..."
                     className="max-w-[500px] w-full py-3 px-6 rounded-lg bg-white text-black text-sm" />
             </header>

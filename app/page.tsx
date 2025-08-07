@@ -45,8 +45,8 @@ export default function Home() {
       <section id="hero"
         className="flex flex-col-reverse items-center justify-center w-full min-h-screen px-10 pt-16 md:pt-0 gap-x-20 gap-y-10 md:flex-row md:px-14">
         <Image
-          className="border-2 grow rounded-4xl"
-          src={'/ph.png'}
+          className="object-cover object-center grow rounded-4xl"
+          src={'/snakeeater-logo.webp'}
           alt="image of SnakeEater's logo"
           width={600}
           height={800}
@@ -67,7 +67,7 @@ export default function Home() {
           </p>
 
           <CTAButton
-            text="Hubungi Kami"
+            text="Hubungi Kami →"
             className="mt-6" />
         </div>
       </section>
@@ -167,7 +167,7 @@ export default function Home() {
       <section id="allFeatures"
         className="flex flex-col items-center justify-center w-full px-10 py-12 md:px-8 md:flex-row gap-x-32 gap-y-12">
         <Image
-          src={'/ph.png'}
+          src={'http://satumomen.com/images/aplikasi-undangan-digital-website.webp'}
           alt="the complete version of digital invitation"
           height={700}
           width={500}

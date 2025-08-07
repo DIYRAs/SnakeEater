@@ -27,7 +27,7 @@ export function Navbar() {
     return (
         <>
             <div className={`${scrollDir === 'up' ? 'translate-y-0' : '-translate-y-full'} transition-all duration-200 ease-in-out 
-            flex fixed left-0 top-0 z-[99] w-full items-center justify-between h-16 py-3 px-4 md:px-8 bg-black/50 backdrop-blur-md text-white`}>
+            flex fixed left-0 top-0 z-[99] w-full items-center justify-between h-16 py-3 px-4 md:px-8 bg-black/70 backdrop-blur-md text-white`}>
                 <div
                     onClick={openDrawer}
                     className="flex items-center justify-center gap-x-3 md:gap-x-5">
@@ -72,13 +72,13 @@ export function Navbar() {
             <div onClick={closeDrawer}
                 className={`absolute md:hidden w-full h-full bg-transparent ${isDrawerOpen ? 'z-[100]' : 'z-[-100]'}`}>
                 <div ref={drawerRef}
-                    className={`fixed transition-all duration-200 ease-in-out left-0 w-8/12 h-screen text-white bg-gray-900 
+                    className={`fixed transition-all duration-200 ease-in-out left-0 w-8/12 h-screen text-white bg-black/70 backdrop-blur-lg
                     ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'}
                     py-14 flex flex-col items-center justify-start gap-10`}>
                     <div
-                        className="flex flex-col items-center justify-center w-full gap-y-5">
+                        className="flex flex-col items-center justify-center w-full">
                         <Image
-                            src={'/ph.png'}
+                            src={'/snakeeater-logo.webp'}
                             alt="SnakeEater logo"
                             height={50}
                             width={50}

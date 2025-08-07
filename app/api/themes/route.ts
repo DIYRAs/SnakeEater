@@ -4,15 +4,44 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
     const category = searchParams.get('category')
+    const search = searchParams.get('search')
 
-    if (category && category !== 'Semua Tema') {
-        const result = await pool.query('SELECT * FROM themes WHERE category = $1 ORDER BY id ASC', [category])
+    const isSearch = search && search.trim() !== ''
+    const isCategory = category && category !== 'Semua Tema'
+
+    try {
+        let result
+
+        if (isSearch && isCategory) {
+            // Search + Category
+            result = await pool.query(
+                'SELECT * FROM themes WHERE name ILIKE $1 AND category = $2 ORDER BY id ASC',
+                [`%${search}%`, category]
+            )
+        } else if (isSearch) {
+            // Search only
+            result = await pool.query(
+                'SELECT * FROM themes WHERE name ILIKE $1 ORDER BY id ASC',
+                [`%${search}%`]
+            )
+        } else if (isCategory) {
+            // Category only
+            result = await pool.query(
+                'SELECT * FROM themes WHERE category = $1 ORDER BY id ASC',
+                [category]
+            )
+        } else {
+            // No filter
+            result = await pool.query('SELECT * FROM themes ORDER BY id ASC')
+        }
+
         return NextResponse.json(result.rows)
-    } else {
-        const result = await pool.query('SELECT * FROM themes ORDER BY id ASC')
-        return NextResponse.json(result.rows)
+    } catch (err) {
+        console.error('Error fetching themes:', err)
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
     }
 }
+
 
 export async function POST(req: NextRequest) {
     const { name, imageUrl, previewUrl, category } = await req.json()
