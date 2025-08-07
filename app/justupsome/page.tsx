@@ -71,30 +71,39 @@ export default function AdminUpload() {
                         id="name" type="text" name="name"
                         className="border" />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="imageUrl">Link Image</label>
                     <input
                         id="imageUrl" type="text" name="imageUrl"
                         className="border" />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="previewUrl">Link Preview</label>
                     <input
                         id="previewUrl" type="text" name="previewUrl"
                         className="border" />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="category">Categori</label>
                     <select
-                        defaultValue={category}
+                        value={category}
+                        onChange={(e) => {
+                            setCategory(e.target.value)
+                            localStorage.setItem('category', e.target.value)
+                        }}
                         className="border"
-                        name="category" id="category">
+                        name="category"
+                        id="category">
                         <option value="">Pilih kategori tema</option>
                         {themeFilter.map((theme, index) => (
                             <option key={index} value={theme}>{theme}</option>
                         ))}
                     </select>
                 </div>
+
                 <button type="submit"
                     className="h-10 font-semibold tracking-widest text-black rounded-full cursor-pointer bg-emerald-200">
                     Uplaod
