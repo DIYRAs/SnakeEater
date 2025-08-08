@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { TrendingThemeCard } from "../UI/components/home/cards";
 import { Theme } from "../data/trendingThemes";
@@ -112,53 +112,57 @@ export default function ThemePage() {
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen py-10 text-black bg-white gap-y-10">
             {/* Header */}
-            <header className="flex flex-col items-center justify-center w-full px-10 py-10 text-white pt-18 gap-y-5 bg-emerald-600">
-                <h1 className="text-3xl font-bold">Tema Undangan Digital</h1>
-                <h3>Pilih tema undangan sesuai kebutuhanmu</h3>
-                <input
-                    onChange={(e) => searchThemes(e.target.value)}
-                    defaultValue={currentSearch}
-                    type="text"
-                    placeholder="Cari Tema: Contoh Cinnamoroll, Aysha, Peony, ..."
-                    className="max-w-[500px] w-full py-3 px-6 rounded-lg bg-white text-black text-sm"
-                />
-            </header>
+            <Suspense fallback={
+                <p className="text-lg">Loading...</p>
+            }>
+                <header className="flex flex-col items-center justify-center w-full px-10 py-10 text-white pt-18 gap-y-5 bg-emerald-600">
+                    <h1 className="text-3xl font-bold">Tema Undangan Digital</h1>
+                    <h3>Pilih tema undangan sesuai kebutuhanmu</h3>
+                    <input
+                        onChange={(e) => searchThemes(e.target.value)}
+                        defaultValue={currentSearch}
+                        type="text"
+                        placeholder="Cari Tema: Contoh Cinnamoroll, Aysha, Peony, ..."
+                        className="max-w-[500px] w-full py-3 px-6 rounded-lg bg-white text-black text-sm"
+                    />
+                </header>
 
-            {/* Filter */}
-            <section className="flex flex-wrap items-center justify-center w-full gap-2 px-3 md:px-10 *:cursor-pointer *:hover:bg-zinc-400">
-                {themeFilter.map((theme, index) => (
-                    <button
-                        key={index}
-                        disabled={isLoading}
-                        onClick={() => handleCategoryClick(theme)}
-                        className={`${currentCategory === theme ? 'bg-emerald-300' : 'bg-zinc-300'} 
+                {/* Filter */}
+                <section className="flex flex-wrap items-center justify-center w-full gap-2 px-3 md:px-10 *:cursor-pointer *:hover:bg-zinc-400">
+                    {themeFilter.map((theme, index) => (
+                        <button
+                            key={index}
+                            disabled={isLoading}
+                            onClick={() => handleCategoryClick(theme)}
+                            className={`${currentCategory === theme ? 'bg-emerald-300' : 'bg-zinc-300'} 
                         p-2 text-xs md:text-md w-40 md:w-[200px] rounded-lg`}>
-                        {theme}
-                    </button>
-                ))}
-            </section>
+                            {theme}
+                        </button>
+                    ))}
+                </section>
 
-            {/* Cards */}
-            <section className="flex flex-wrap items-center justify-center w-full gap-3 py-3 md:gap-7">
-                {themes.length > 0 ? (
-                    themes.map((theme) => (
-                        <TrendingThemeCard
-                            key={theme.id}
-                            title={theme.name}
-                            imgUrl={theme.imageurl}
-                            linkPreview={theme.previewurl || '/themes'}
-                        />
-                    ))
-                ) : (
-                    <p className="text-3xl italic font-semibold">Belum ada tema</p>
-                )}
+                {/* Cards */}
+                <section className="flex flex-wrap items-center justify-center w-full gap-3 py-3 md:gap-7">
+                    {themes.length > 0 ? (
+                        themes.map((theme) => (
+                            <TrendingThemeCard
+                                key={theme.id}
+                                title={theme.name}
+                                imgUrl={theme.imageurl}
+                                linkPreview={theme.previewurl || '/themes'}
+                            />
+                        ))
+                    ) : (
+                        <p className="text-3xl italic font-semibold">Belum ada tema</p>
+                    )}
 
-                {themes.length > 0 && (
-                    <div className="flex items-center justify-center w-full gap-6 mt-6 font-semibold">
-                        {renderPagination()}
-                    </div>
-                )}
-            </section>
+                    {themes.length > 0 && (
+                        <div className="flex items-center justify-center w-full gap-6 mt-6 font-semibold">
+                            {renderPagination()}
+                        </div>
+                    )}
+                </section>
+            </Suspense>
         </div>
     );
 }
