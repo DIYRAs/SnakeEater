@@ -45,21 +45,27 @@ export default function Home() {
       <section id="hero"
         className="flex flex-col-reverse items-center justify-center w-full min-h-screen px-10 pt-16 md:pt-0 gap-x-20 gap-y-10 md:flex-row md:px-14">
         <Image
+          data-aos="fade-down"
           className="object-cover object-center grow rounded-4xl"
           src={'/snakeeater-logo.webp'}
           alt="image of SnakeEater's logo"
           width={600}
           height={800}
-          priority />
+          priority
+        />
 
         <div className="space-y-5 grow">
-          <h1 className="text-3xl font-bold md:text-4xl">
+          <h1 className="text-3xl font-bold md:text-4xl"
+            data-aos="fade-down"
+            data-aos-delay="200">
             Miliki Undangan Digital Website Kekinian Dengan <span className="bg-emerald-400 px-0.5">
               Harga dan Kualitas Terbaik
             </span>
           </h1>
 
-          <p className="text-sm md:text-md md:text-justify">
+          <p data-aos="fade-down"
+            data-aso-delay="400"
+            className="text-sm md:text-md md:text-justify">
             Merencanakan pernikahan, ulang tahun, syukuran, dan acara lainnya
             bisa menjadi pengalaman yang menyenangkan sekaligus menegangkan.
             Solusinya yaitu menggunakan undangan digital berbentuk website yang
@@ -67,6 +73,8 @@ export default function Home() {
           </p>
 
           <CTAButton
+            animation="fade-down"
+            animationDelay="600"
             text="Hubungi Kami →"
             className="mt-6" />
         </div>
@@ -79,24 +87,29 @@ export default function Home() {
 
         <ul className="flex flex-col md:flex-row text-start max-w-[700px] mt-6 mb-24 text-sm md:text-[16px] flex-wrap items-start justify-center md:items-center *:before:content-['✅'] *:before:mr-1 gap-x-5 gap-y-1">
           {whyUsValue.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li data-aos="fade-up"
+              data-aos-delay={`${i * 100}`}
+              key={i}>{item}</li>
           ))}
         </ul>
 
         <div className="flex flex-wrap items-center justify-center gap-5 *:transition *:active:-translate-y-3 *:hover:-translate-y-3 w-full">
           <ValueCard
+            animationDelay="100"
             icon={<SiTinyletter />}
             title="Beragam Pilihan Tema"
             text="Pilih tema favoritmu dari puluhan tema dan bisa kamu custom sendiri,
             mau ganti background dengan foto prewed? atau ubah warna tulisan? Bisa!." />
 
           <ValueCard
+            animationDelay="200"
             icon={<TbPencilHeart />}
             title="Custome Nama Tamu"
             text="Ngundang teman sebaya atau yang lebih tua gak perlu hawatir. Tetap sopan
             dengan undangan digital karena kamu bisa kirim undangan dengan nama tamu." />
 
           <ValueCard
+            animationDelay="300"
             icon={<MdOutlineLibraryBooks />}
             title="Konfirmasi Kehadiran"
             text="Kini kamu bisa mengetahui berapa jumlah tamu yang hadir atau tidak, 
@@ -114,30 +127,39 @@ export default function Home() {
             icon={<FaRegIdCard />}
             title="Custom Nama Tamu" />
           <FeatureCard
+            animationDelay="50"
             icon={<FaMusic />}
             title="Custom Musik Latar" />
           <FeatureCard
+            animationDelay="100"
             icon={<BsChatHeart />}
             title="RSVP & Ucapan" />
           <FeatureCard
+            animationDelay="150"
             icon={<MdCardGiftcard />}
             title="Amplop Digital" />
           <FeatureCard
+            animationDelay="200"
             icon={<PiClockCountdownFill />}
             title="Countdown Timer" />
           <FeatureCard
+            animationDelay="250"
             icon={<TbPhotoHeart />}
             title="Galeri Foto & Video" />
           <FeatureCard
+            animationDelay="300"
             icon={<SiGooglemaps />}
             title="Integrasi Google Maps" />
           <FeatureCard
+            animationDelay="350"
             icon={<FaYoutube />}
             title="Info Live Streaming" />
           <FeatureCard
+            animationDelay="400"
             icon={<IoQrCodeOutline />}
             title="QR Code Checkin Acara" />
           <FeatureCard
+            animationDelay="450"
             icon={<PiScreencastFill />}
             title="Layar Sapa Real Time" />
         </div>
@@ -151,6 +173,7 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-center w-full gap-3 md:gap-7">
           {trendingThemes.map((theme: Theme, index) => (
             <TrendingThemeCard
+              animationDelay={`${index * 50}`}
               key={index}
               title={theme.name}
               imgUrl={theme.imageurl}
@@ -159,6 +182,7 @@ export default function Home() {
         </div>
 
         <CTAButton
+          animation="fade-up"
           href="/theme"
           text="Lihat tema lainnya" />
       </Section>
@@ -167,6 +191,7 @@ export default function Home() {
       <section id="allFeatures"
         className="flex flex-col items-center justify-center w-full px-10 py-12 md:px-8 md:flex-row gap-x-32 gap-y-12">
         <Image
+          data-aos="fade-right"
           src={'http://satumomen.com/images/aplikasi-undangan-digital-website.webp'}
           alt="the complete version of digital invitation"
           height={700}
@@ -174,17 +199,23 @@ export default function Home() {
           className="rounded-full" />
 
         <div className="flex flex-col items-start justify-center">
-          <h2 className="text-3xl font-semibold md:text-4xl">
+          <h2
+            data-aos="fade-left"
+            className="text-3xl font-semibold md:text-4xl">
             Undangan Digital Dengan Fitur yang Lengkap
           </h2>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 my-6 *:before:content-['✅'] gap-x-5 gap-y-1">
             {CompleteFeatures.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li data-aos="fade-up"
+                data-aos-delay={i * 50}
+                key={i}>{item}</li>
             ))}
           </ul>
 
           <CTAButton
+          animation="fade-up"
+          animationDelay="300"
             text="Buat Undangan Digital →" />
         </div>
 

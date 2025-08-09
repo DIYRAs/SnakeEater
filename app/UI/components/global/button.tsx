@@ -1,8 +1,11 @@
 import Link from "next/link"
 
-export function CTAButton({ href = 'https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital', text, className, colors = 'bg-green-950 text-white' }: { href?: string, text: string, className?: string, colors?: string }) {
+export function CTAButton({ href = 'https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital', text, className, animation, animationDelay, colors = 'bg-green-950 text-white' }: { href?: string, text: string, className?: string, animation?: string, animationDelay?: string, colors?: string }) {
     return (
-        <Link href={href}
+        <Link
+            data-aos={animation}
+            data-aos-delay={animationDelay}
+            href={href}
             className={`px-4 py-2 text-[16px] md:text-[16px] md:px-4 rounded-full cursor-pointer px ${colors} ${className}
             transition hover:-translate-y-1 active:-translate-y-1`}>
             {text}

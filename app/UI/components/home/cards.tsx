@@ -2,9 +2,12 @@ import { CTAButton, PreviewBuyBtn } from "../global/button";
 import Image from "next/image";
 import { ReactElement } from "react";
 
-export function ValueCard({ title, text, icon }: { title: string, text: string, icon?: ReactElement }) {
+export function ValueCard({ title, text, icon, animationDelay }: { title: string, text: string, icon?: ReactElement, animationDelay?: string }) {
     return (
-        <div className="px-8 py-3 bg-gray-50/70 min-h-[190px] md:w-[380px] w-full rounded-2xl text-start space-y-2">
+        <div
+            data-aos="flip-up"
+            data-aos-delay={animationDelay}
+            className="px-8 py-3 bg-gray-50/70 min-h-[190px] md:w-[380px] w-full rounded-2xl text-start space-y-2">
             <span className="text-5xl">
                 {icon}
             </span>
@@ -16,9 +19,12 @@ export function ValueCard({ title, text, icon }: { title: string, text: string, 
     )
 }
 
-export default function FeatureCard({ title, icon }: { title: string, icon?: ReactElement }) {
+export default function FeatureCard({ title, icon, animationDelay }: { title: string, icon?: ReactElement, animationDelay?: string }) {
     return (
-        <div className="flex flex-col items-center w-full h-full md:h-max md:w-[250px] gap-3 px-3 py-6 bg-emerald-200/70 rounded-xl">
+        <div
+            data-aos="zoom-in-up"
+            data-aos-delay={animationDelay}
+            className="flex flex-col items-center w-full h-full md:h-max md:w-[250px] gap-3 px-3 py-6 bg-emerald-200/70 rounded-xl">
             <span className="text-5xl">
                 {icon}
             </span>
@@ -27,10 +33,12 @@ export default function FeatureCard({ title, icon }: { title: string, icon?: Rea
     );
 }
 
-export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { title: string, imgUrl: string, linkPreview: string, className?: string }) {
+export function TrendingThemeCard({ title, imgUrl, animationDelay, linkPreview, className }: { title: string, imgUrl: string, animationDelay?: string, linkPreview: string, className?: string }) {
     return (
         <div
-            className={`h-[300px] relative w-40 md:h-[350px] md:w-64 flex items-center hover:scale-95 transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
+            data-aos="fade-up"
+            data-aos-delay={animationDelay}
+            className={`h-[300px] relative w-40 md:h-[350px] md:w-64 flex items-center transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
             <Image
                 src={imgUrl ?? '/snakeeater-logo.webp'}
                 placeholder="blur"
@@ -60,7 +68,9 @@ export function TrendingThemeCard({ title, imgUrl, linkPreview, className }: { t
 
 export function PriceCard({ plan, initialPrice, price, features, href }: { plan: string, initialPrice?: string, price: string, features: string[], href?: string }) {
     return (
-        <div className="flex flex-col items-center justify-center px-5 py-4 border border-black/50 gap-y-5 rounded-2xl">
+        <div
+            data-aos="fade-up"
+            className="flex flex-col items-center justify-center px-5 py-4 border border-black/50 gap-y-5 rounded-2xl">
             <p className="text-xl font-semibold tracking-wider text-center text-black/80">
                 Paket {plan}
             </p>

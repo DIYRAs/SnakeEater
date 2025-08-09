@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.13.0",
+    "aos": "^2.3.4",
     "framer-motion": "^12.23.12",
     "next": "15.4.4",
     "pg": "^8.16.3",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/pg": "^8.15.5",
     "@types/react": "^19",
