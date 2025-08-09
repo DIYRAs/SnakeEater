@@ -95,7 +95,7 @@ export default function ThemePage() {
                 items.push(
                     <div key={i}
                         onClick={() => paginationThemes(i)}
-                        className={`p-4 text-xl rounded-lg hover:scale-105 cursor-pointer 
+                        className={`py-3 px-5 text-xl rounded-lg hover:scale-105 cursor-pointer 
                         ${i === currentPage ? 'bg-emerald-700 text-white' : 'bg-zinc-400 text-black'}`}>
                         {i}
                     </div>

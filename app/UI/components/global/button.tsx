@@ -25,7 +25,7 @@ export function PreviewBuyBtn({ linkPreview, theme }: { linkPreview: string, the
             </Link>
 
             <Link
-                className="cursor-pointer grow bg-emerald-500 text-zinc-900"
+                className="cursor-pointer grow bg-emerald-500 hover:bg-emerald-300 text-zinc-900"
                 href={`https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20tema%20%2A${theme}%2A` || '/themes'}
                 target="_blank"
                 rel="noopener noreferrer">

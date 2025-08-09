@@ -40,7 +40,7 @@ export default function Home() {
 
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full min-h-screen py-10 text-black bg-white">
+    <div className="relative flex flex-col items-center justify-center w-full min-h-screen py-10 overflow-x-hidden text-black bg-white">
       {/* HERO SECTION */}
       <section id="hero"
         className="flex flex-col-reverse items-center justify-center w-full min-h-screen px-10 pt-16 md:pt-0 gap-x-20 gap-y-10 md:flex-row md:px-14">
@@ -245,7 +245,7 @@ export default function Home() {
       <Section id="priceList"
         title="Daftar Harga"
         subTitle="Pilih Paket yang sesuai dengan kebutuhanmu, chat Admin untuk konsultasi gratis!"
-        className="px-5">
+        className="px-5 overflow-hidden">
 
         <div className="flex flex-wrap items-start justify-center gap-6 mt-12">
           <PriceCard
