@@ -60,7 +60,7 @@ export default function AdminUpload() {
     }
 
     return (
-        <div className="flex flex-col items-center w-full min-h-screen py-10 text-black bg-zinc-300">
+        <div className="flex flex-col items-center w-full min-h-screen px-3 py-10 text-black bg-zinc-300">
             <h1 className="mt-10 font-mono text-4xl font-semibold">
                 HALO, <br />
                 Isi lah data undangannya. Ty.
@@ -68,7 +68,7 @@ export default function AdminUpload() {
 
             <p className="mt-10 text-2xl">{data && data.message ? data.message : ''}</p>
             <form onSubmit={handleSubmit}
-                className={`flex flex-col max-w-[500px] w-full mt-8 items-center justify-center gap-5 p-5 bg-zinc-800 text-zinc-100 rounded-lg *:w-full
+                className={`flex flex-col max-w-[500px] z-20 w-full mt-8 items-center justify-center gap-5 p-5 bg-zinc-800 text-zinc-100 rounded-lg *:w-full
                 ${isLoading ? 'pointer-events-none select-none opacity-50' : 'pointer-events-auto select-auto opacity-100'} `}>
                 <div className="flex flex-col">
                     <label htmlFor="name">Nama Tema</label>
@@ -96,7 +96,7 @@ export default function AdminUpload() {
                     <select
                         value={typeImage}
                         onChange={(e) => {
-                            setCategory(e.target.value)
+                            setTypeImage(e.target.value)
                             localStorage.setItem('typeimage', e.target.value)
                         }}
                         className="border"
@@ -140,6 +140,7 @@ export default function AdminUpload() {
             background-color: white;
             color: black;
             border: none;
+            z-index: 2;
             }
             `}</style>
         </div>
