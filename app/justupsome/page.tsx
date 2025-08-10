@@ -12,12 +12,15 @@ export default function AdminUpload() {
     const [data, setData] = useState<{ message?: string } | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [category, setCategory] = useState('')
-
+    const [typeImage, setTypeImage] = useState('webp')
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const selected = localStorage.getItem('category')?.toString() ?? ''
             setCategory(selected)
+
+            const selectedImg = localStorage.getItem('typeimage')?.toString() ?? 'webp'
+            setTypeImage(selectedImg)
         }
     }, [])
 
@@ -29,12 +32,14 @@ export default function AdminUpload() {
         const formData = new FormData(form)
         const category = formData.get('category')?.toString() || ''
         localStorage.setItem('category', category)
+        localStorage.setItem('typeimage', typeImage)
 
         const payload = {
             name: formData.get('name'),
             imageUrl: formData.get('imageUrl'),
             previewUrl: formData.get('previewUrl'),
-            category: formData.get('category')
+            category: formData.get('category'),
+            type: formData.get('typeImage')
         }
 
         const res = await fetch('/api/themes', {
@@ -72,7 +77,7 @@ export default function AdminUpload() {
                         className="border" />
                 </div>
 
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                     <label htmlFor="imageUrl">Link Image</label>
                     <input
                         id="imageUrl" type="text" name="imageUrl"
@@ -84,6 +89,23 @@ export default function AdminUpload() {
                     <input
                         id="previewUrl" type="text" name="previewUrl"
                         className="border" />
+                </div> */}
+
+                <div className="flex flex-col">
+                    <label htmlFor="typeImage">Tipe Image</label>
+                    <select
+                        value={typeImage}
+                        onChange={(e) => {
+                            setCategory(e.target.value)
+                            localStorage.setItem('typeimage', e.target.value)
+                        }}
+                        className="border"
+                        name="typeImage"
+                        id="typeImage">
+                        <option value="">Pilih tipe image</option>
+                        <option value="webp">webp</option>
+                        <option value="jpg">jpg</option>
+                    </select>
                 </div>
 
                 <div className="flex flex-col">

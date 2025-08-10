@@ -167,56 +167,55 @@ export async function GET(req: NextRequest) {
 
 
 export async function POST(req: NextRequest) {
-    const { name, imageUrl, previewUrl, category } = await req.json()
+    const { name, imageUrl, previewUrl, category, type } = await req.json()
 
     function slugify(text: string) {
-        return text.toLowerCase().trim().replace(/\s+/g, '-');
-    }
-    const slug = slugify(name)
-
-    if (!name || !imageUrl || !previewUrl) {
-        return NextResponse.json(
-            { message: 'Isi dulu lah' },
-            { status: 400 }
-        )
+        return text
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/&/g, '-')
+            .replace(/[^a-z0-9-]/g, '');
     }
 
-    if (!imageUrl.includes(slug) || !previewUrl.includes(slug)) {
-        return NextResponse.json(
-            { message: 'Bebujur, nama tema lawan URL nya beda' },
-            { status: 400 }
-        );
+    if (!name) {
+        return NextResponse.json({ message: 'Nama tema harus diisi' }, { status: 400 });
     }
 
-    // const pattern = new RegExp(`/${slug}/`);
+    const slug = slugify(name);
 
-    // if (!pattern.test(imageUrl) || !pattern.test(previewUrl)) {
-    //     return NextResponse.json(
-    //         { message: 'Bebujur njir, nama tema lawan image/ previewnya beda' },
-    //         { status: 400 }
-    //     );
-    // }
+    let finalImageUrl = imageUrl;
+    let finalPreviewUrl = previewUrl;
 
+    // Jika imageUrl dan previewUrl kosong → generate otomatis
+    if (!imageUrl && !previewUrl) {
+        finalImageUrl = `https://kuladigital.webinvit.id/themes/${slug}/${slug}.${type === 'webp' ? 'webp' : 'jpg'}`;
+        finalPreviewUrl = `https://kuladigital.webinvit.id/preview/${slug}`;
+    }
 
+    // Cek apakah URL sesuai slug
+    if (!finalImageUrl.includes(slug) || !finalPreviewUrl.includes(slug)) {
+        return NextResponse.json({ message: 'Bebujur, nama tema lawan URL nya beda' }, { status: 400 });
+    }
+
+    // Cek duplicate
     const checkDuplicate = await pool.query(
         'SELECT * FROM themes WHERE LOWER(name) = LOWER($1) OR imageUrl = $2 OR previewUrl = $3',
-        [name, imageUrl, previewUrl]
-    )
-    const isDuplicate = checkDuplicate.rows.length > 0
+        [name, finalImageUrl, finalPreviewUrl]
+    );
 
-    if (isDuplicate) {
-        return NextResponse.json(
-            { message: 'Sudah ada temanya' },
-            { status: 409 }
-        )
+    if (checkDuplicate.rows.length > 0) {
+        return NextResponse.json({ message: 'Sudah ada temanya' }, { status: 409 });
     }
 
+    // Insert data
     const result = await pool.query(
         'INSERT INTO themes (name, imageUrl, previewUrl, category) VALUES ($1, $2, $3, $4) RETURNING *',
-        [name, imageUrl, previewUrl, category]
-    )
+        [name, finalImageUrl, finalPreviewUrl, category]
+    );
+
     return NextResponse.json({
         data: result.rows[0],
         message: 'Mantap'
-    })
+    });
 }
