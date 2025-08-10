@@ -38,6 +38,42 @@ export default function Home() {
     "Ubah Warna & Ukuran Font"
   ]
 
+  const valueCardsData = [
+    {
+      animationDelay: "100",
+      icon: <SiTinyletter />,
+      title: "Beragam Pilihan Tema",
+      text: `Pilih tema favoritmu dari puluhan tema dan bisa kamu custom sendiri,
+            mau ganti background dengan foto prewed? atau ubah warna tulisan? Bisa!.`
+    },
+    {
+      animationDelay: "200",
+      icon: <TbPencilHeart />,
+      title: "Custome Nama Tamu",
+      text: `Ngundang teman sebaya atau yang lebih tua gak perlu hawatir. Tetap sopan
+            dengan undangan digital karena kamu bisa kirim undangan dengan nama tamu.`
+    },
+    {
+      animationDelay: "300",
+      icon: <MdOutlineLibraryBooks />,
+      title: "Konfirmasi Kehadiran",
+      text: `Kini kamu bisa mengetahui berapa jumlah tamu yang hadir atau tidak, 
+            sehingga bisa mengurangi makanan sisa yang tidak termakan.`
+    }
+  ]
+
+  const featuresData = [
+    { icon: <FaRegIdCard />, title: "Custom Nama Tamu" },
+    { icon: <FaMusic />, title: "Custom Musik Latar" },
+    { icon: <BsChatHeart />, title: "RSVP & Ucapan" },
+    { icon: <MdCardGiftcard />, title: "Amplop Digital" },
+    { icon: <PiClockCountdownFill />, title: "Countdown Timer" },
+    { icon: <TbPhotoHeart />, title: "Galeri Foto & Video" },
+    { icon: <SiGooglemaps />, title: "Integrasi Google Maps" },
+    { icon: <FaYoutube />, title: "Info Live Streaming" },
+    { icon: <IoQrCodeOutline />, title: "QR Code Checkin Acara" },
+    { icon: <PiScreencastFill />, title: "Layar Sapa Real Time" }
+  ]
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full min-h-screen py-10 overflow-x-hidden text-black bg-white">
@@ -94,26 +130,15 @@ export default function Home() {
         </ul>
 
         <div className="flex flex-wrap items-center justify-center gap-5 *:transition *:active:-translate-y-3 *:hover:-translate-y-3 w-full">
-          <ValueCard
-            animationDelay="100"
-            icon={<SiTinyletter />}
-            title="Beragam Pilihan Tema"
-            text="Pilih tema favoritmu dari puluhan tema dan bisa kamu custom sendiri,
-            mau ganti background dengan foto prewed? atau ubah warna tulisan? Bisa!." />
-
-          <ValueCard
-            animationDelay="200"
-            icon={<TbPencilHeart />}
-            title="Custome Nama Tamu"
-            text="Ngundang teman sebaya atau yang lebih tua gak perlu hawatir. Tetap sopan
-            dengan undangan digital karena kamu bisa kirim undangan dengan nama tamu." />
-
-          <ValueCard
-            animationDelay="300"
-            icon={<MdOutlineLibraryBooks />}
-            title="Konfirmasi Kehadiran"
-            text="Kini kamu bisa mengetahui berapa jumlah tamu yang hadir atau tidak, 
-            sehingga bisa mengurangi makanan sisa yang tidak termakan." />
+          {valueCardsData.map((data, index) => (
+            <div key={index}>
+              <ValueCard
+                animationDelay={data.animationDelay}
+                icon={data.icon}
+                title={data.title}
+                text={data.text} />
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -123,45 +148,14 @@ export default function Home() {
         subTitle="Undangan Digital Dengan Fitur yang Lengkap hanya disini" >
 
         <div className="grid grid-cols-2 gap-5 mt-10 md:flex md:flex-wrap px-5 md:items-center md:justify-center place-items-center *:transition *:hover:-translate-y-3 *:active:-translate-y-3">
-          <FeatureCard
-            icon={<FaRegIdCard />}
-            title="Custom Nama Tamu" />
-          <FeatureCard
-            animationDelay="50"
-            icon={<FaMusic />}
-            title="Custom Musik Latar" />
-          <FeatureCard
-            animationDelay="100"
-            icon={<BsChatHeart />}
-            title="RSVP & Ucapan" />
-          <FeatureCard
-            animationDelay="150"
-            icon={<MdCardGiftcard />}
-            title="Amplop Digital" />
-          <FeatureCard
-            animationDelay="200"
-            icon={<PiClockCountdownFill />}
-            title="Countdown Timer" />
-          <FeatureCard
-            animationDelay="250"
-            icon={<TbPhotoHeart />}
-            title="Galeri Foto & Video" />
-          <FeatureCard
-            animationDelay="300"
-            icon={<SiGooglemaps />}
-            title="Integrasi Google Maps" />
-          <FeatureCard
-            animationDelay="350"
-            icon={<FaYoutube />}
-            title="Info Live Streaming" />
-          <FeatureCard
-            animationDelay="400"
-            icon={<IoQrCodeOutline />}
-            title="QR Code Checkin Acara" />
-          <FeatureCard
-            animationDelay="450"
-            icon={<PiScreencastFill />}
-            title="Layar Sapa Real Time" />
+          {featuresData.map((data, index) => (
+            <div key={index}>
+              <FeatureCard
+                title={data.title}
+                icon={data.icon}
+                animationDelay={`${index * 50}`} />
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -214,8 +208,8 @@ export default function Home() {
           </ul>
 
           <CTAButton
-          animation="fade-up"
-          animationDelay="300"
+            animation="fade-up"
+            animationDelay="300"
             text="Buat Undangan Digital →" />
         </div>
 
