@@ -38,7 +38,7 @@ export function TrendingThemeCard({ title, imgUrl, animationDelay, linkPreview, 
         <div
             data-aos="fade-up"
             data-aos-delay={animationDelay}
-            className={`h-[300px] relative w-40 md:h-[350px] md:w-64 flex items-center transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
+            className={`h-[300px] relative text-sm md:text-[16px] w-40 md:h-[350px] md:w-64 flex items-center transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
             <Image
                 src={imgUrl ?? '/snakeeater-logo.webp'}
                 placeholder="blur"
