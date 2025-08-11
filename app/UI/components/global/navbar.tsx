@@ -73,7 +73,7 @@ export function Navbar() {
                     colors="bg-emerald-500 text-black" />
             </div>
             <div onClick={closeDrawer}
-                className={`absolute md:hidden w-full h-full bg-transparent ${isDrawerOpen ? 'z-[100]' : 'z-[10]'}`}>
+                className={`absolute md:hidden w-full h-full bg-transparent ${isDrawerOpen ? 'z-[100]' : 'z-[-10]'}`}>
                 <div ref={drawerRef}
                     className={`fixed transition-all duration-200 ease-in-out left-0 w-8/12 h-screen text-white bg-black/70 backdrop-blur-lg
                     ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'}
