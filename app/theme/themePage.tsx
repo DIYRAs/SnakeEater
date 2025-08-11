@@ -95,14 +95,14 @@ export default function ThemePage() {
                 items.push(
                     <div key={i}
                         onClick={() => paginationThemes(i)}
-                        className={`py-3 px-5 text-xl rounded-lg hover:scale-105 cursor-pointer 
+                        className={`py-2 px-4 text-xl rounded-lg hover:scale-105 cursor-pointer 
                         ${i === currentPage ? 'bg-emerald-700 text-white' : 'bg-zinc-400 text-black'}`}>
                         {i}
                     </div>
                 )
             } else if (i === currentPage + 3) {
                 items.push(
-                    <div key={`dots-${i}`} className="p-5 rounded-lg bg-zinc-400">...</div>
+                    <div key={`dots-${i}`} className="px-4 py-2 rounded-lg bg-zinc-400">...</div>
                 )
             }
         }
@@ -154,7 +154,7 @@ export default function ThemePage() {
                 )}
 
                 {themes.length > 0 && (
-                    <div className="flex items-center justify-center w-full gap-6 mt-6 font-semibold">
+                    <div className="flex items-center justify-center w-full gap-3 mt-6 font-semibold">
                         {renderPagination()}
                     </div>
                 )}

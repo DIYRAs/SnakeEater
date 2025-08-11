@@ -76,7 +76,7 @@ export async function GET(req: NextRequest) {
     const category = searchParams.get('category')?.trim()
     const search = searchParams.get('search')?.trim()
     const page = searchParams.get('page')?.trim() || 1
-    const limit = 40
+    const limit = 80
     const offset = (Number(page) - 1) * limit
 
     const isSearch = search && search.trim() !== ''
