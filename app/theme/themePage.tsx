@@ -95,14 +95,14 @@ export default function ThemePage() {
                 items.push(
                     <div key={i}
                         onClick={() => paginationThemes(i)}
-                        className={`py-2 px-4 text-xl rounded-lg hover:scale-105 cursor-pointer 
+                        className={`py-2 px-4 text-xl rounded-lg hover:scale-105 cursor-pointer select-none
                         ${i === currentPage ? 'bg-emerald-700 text-white' : 'bg-zinc-400 text-black'}`}>
                         {i}
                     </div>
                 )
             } else if (i === currentPage + 3) {
                 items.push(
-                    <div key={`dots-${i}`} className="px-4 py-2 rounded-lg bg-zinc-400">...</div>
+                    <div key={`dots-${i}`} className="px-4 py-2 rounded-lg select-none bg-zinc-400">...</div>
                 )
             }
         }
