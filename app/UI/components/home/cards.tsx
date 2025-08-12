@@ -33,10 +33,10 @@ export default function FeatureCard({ title, icon, animationDelay }: { title: st
     );
 }
 
-export function TrendingThemeCard({ title, imgUrl, animationDelay, linkPreview, className }: { title: string, imgUrl: string, animationDelay?: string, linkPreview: string, className?: string }) {
+export function TrendingThemeCard({ title, imgUrl, animation, animationDelay, linkPreview, className }: { title: string, imgUrl: string, animation?: string, animationDelay?: string, linkPreview: string, className?: string }) {
     return (
         <div
-            data-aos="fade-up"
+            data-aos={animation}
             data-aos-delay={animationDelay}
             className={`h-[300px] relative text-sm md:text-[16px] w-40 md:h-[350px] md:w-64 flex items-center transition justify-end flex-col rounded-lg overflow-hidden ${className}`}>
             <Image

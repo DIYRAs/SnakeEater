@@ -167,6 +167,7 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-center w-full gap-3 md:gap-7">
           {trendingThemes.map((theme: Theme, index) => (
             <TrendingThemeCard
+              animation="fade-up"
               animationDelay={`${index * 50}`}
               key={index}
               title={theme.name}
