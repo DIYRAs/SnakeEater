@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { TrendingThemeCard } from "../UI/components/home/cards";
 import { Theme } from "../data/trendingThemes";
@@ -18,6 +18,10 @@ export default function ThemePage() {
     const currentCategory = searchParams.get('category') || 'Semua Tema'
     const currentSearch = searchParams.get('search') || ''
     const currentPage = parseInt(searchParams.get('page') || '1')
+    // const currentPage = Math.max(
+    //     1,
+    //     Math.min(parseInt(searchParams.get("page") || "1"), page.totalPages)
+    // )
 
     const themeFilter = [
         'Semua Tema',
@@ -91,23 +95,64 @@ export default function ThemePage() {
     const renderPagination = () => {
         const items = []
         for (let i = 1; i <= page.totalPages; i++) {
-            if (i <= 3 || i === page.totalPages) {
-                items.push(
-                    <div key={i}
-                        onClick={() => paginationThemes(i)}
-                        className={`py-2 px-4 text-xl rounded-lg hover:scale-105 cursor-pointer select-none
-                        ${i === currentPage ? 'bg-emerald-700 text-white' : 'bg-zinc-400 text-black'}`}>
-                        {i}
-                    </div>
-                )
-            } else if (i === currentPage + 3) {
-                items.push(
-                    <div key={`dots-${i}`} className="px-4 py-2 rounded-lg select-none bg-zinc-400">...</div>
-                )
-            }
+            items.push(
+                <div key={i}
+                    onClick={() => paginationThemes(i)}
+                    className={`py-2 px-3 text-md rounded-lg hover:scale-105 cursor-pointer select-none
+                    ${i === currentPage ? 'bg-emerald-700 text-white' : 'bg-zinc-400 text-black'}`}>
+                    {i}
+                </div>
+            )
+            // if (i <= 3 || i === page.totalPages) {
+            // }
+            // else if (i === currentPage + 3) {
+            //     items.push(
+            //         <div key={`dots-${i}`} className="px-4 py-2 rounded-lg select-none bg-zinc-400">...</div>
+            //     )
+            // }
         }
         return items
     }
+    // const renderPagination = () => {
+    //     const items: React.ReactNode[] = []
+    //     const total = page.totalPages
+    //     const windowSize = 3
+
+    //     // Helper untuk tombol halaman
+    //     const PageBtn = (i: number) => (
+    //         <div
+    //             key={i}
+    //             onClick={() => paginationThemes(i)}
+    //             className={`py-2 px-4 text-xl rounded-lg hover:scale-105 cursor-pointer select-none 
+    //         ${i === currentPage ? "bg-emerald-700 text-white" : "bg-zinc-400 text-black"}`}
+    //         >
+    //             {i}
+    //         </div>
+    //     )
+
+    //     // Jika total halaman sedikit, tampilkan semua
+    //     if (total <= windowSize) {
+    //         for (let i = 1; i <= total; i++) items.push(PageBtn(i))
+    //         return items
+    //     }
+
+    //     // Hitung jendela geser: [start..end] berukuran 3
+    //     const start = Math.max(1, Math.min(currentPage, total - windowSize + 1))
+    //     const end = start + windowSize - 1
+
+    //     // Tampilkan window
+    //     for (let i = start; i <= end; i++) items.push(PageBtn(i))
+
+    //     // Jika masih ada halaman di belakang, tampilkan "…", lalu halaman terakhir
+    //     if (end < total) {
+    //         items.push(
+    //             <div key="dots" className="px-4 py-2 rounded-lg select-none bg-zinc-400">…</div>
+    //         )
+    //         items.push(PageBtn(total))
+    //     }
+
+    //     return items
+    // }
 
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen py-10 text-black bg-white gap-y-10">
