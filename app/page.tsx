@@ -247,7 +247,7 @@ export default function Home() {
             plan="Express"
             initialPrice="150,000"
             price="120,000"
-            href="wa.me/wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AExpress%2A"
+            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AExpress%2A"
             features={[
               "Proses < 1 Hari Kerja",
               "Maksimal Revisi Bebas",
@@ -264,7 +264,7 @@ export default function Home() {
             plan="Mewah"
             initialPrice="100,000"
             price="80,000"
-            href="wa.me/wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AMewah%2A"
+            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AMewah%2A"
             features={[
               "Proses < 1 Hari Kerja",
               "Maksimal Revisi 5x",
@@ -280,7 +280,7 @@ export default function Home() {
           <PriceCard
             plan="Standar"
             price="50,000"
-            href="wa.me/wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AStandar%2A"
+            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AStandar%2A"
             features={[
               "Proses < 1 Hari Kerja",
               "Maksimal Revisi 3x",
