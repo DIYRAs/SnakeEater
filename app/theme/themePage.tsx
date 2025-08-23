@@ -195,7 +195,7 @@ export default function ThemePage() {
                         />
                     ))
                 ) : (
-                    <p className="text-3xl italic font-semibold">Belum ada tema</p>
+                    <p className="text-xl italic font-semibold">Loading...</p>
                 )}
 
                 {themes.length > 0 && (
