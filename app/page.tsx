@@ -244,6 +244,37 @@ export default function Home() {
 
         <div className="flex flex-wrap items-start justify-center gap-6 mt-12">
           <PriceCard
+            plan="Standar"
+            price="50,000"
+            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AStandar%2A"
+            features={[
+              "Proses < 1 Hari Kerja",
+              "Maksimal Revisi 5x",
+              "Unlimited Tamu Undangan",
+              "Custom Music Latar",
+              "Hitung Mundur Waktu Acara",
+              "Integrasi Google Maps",
+            ]} />
+
+          <PriceCard
+            plan="Mewah"
+            initialPrice="100,000"
+            price="80,000"
+            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AMewah%2A"
+            features={[
+              "Proses < 1 Hari Kerja",
+              "Maksimal Revisi 10x",
+              "Unlimited Tamu Undangan",
+              "Custom Music Latar",
+              "Hitung Mundur Waktu Acara",
+              "Integrasi Google Maps",
+              "Ucapan & RSVP",
+              "QR Code Check-In",
+              "Amplop Digital",
+              "Galeri Foto & Video"
+            ]} />
+
+          <PriceCard
             plan="Express"
             initialPrice="150,000"
             price="120,000"
@@ -259,35 +290,6 @@ export default function Home() {
               "QR Code Check-In",
               "Amplop Digital",
               "Galeri Foto & Video"
-            ]} />
-          <PriceCard
-            plan="Mewah"
-            initialPrice="100,000"
-            price="80,000"
-            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AMewah%2A"
-            features={[
-              "Proses < 1 Hari Kerja",
-              "Maksimal Revisi 5x",
-              "Unlimited Tamu Undangan",
-              "Custom Music Latar",
-              "Hitung Mundur Waktu Acara",
-              "Integrasi Google Maps",
-              "Ucapan & RSVP",
-              "QR Code Check-In",
-              "Amplop Digital",
-              "Galeri Foto & Video"
-            ]} />
-          <PriceCard
-            plan="Standar"
-            price="50,000"
-            href="https://wa.me/+62882021235692?text=Halo%20kak%20Irfan%2C%20saya%20mau%20pesan%20undangan%20digital%20paket%20%2AStandar%2A"
-            features={[
-              "Proses < 1 Hari Kerja",
-              "Maksimal Revisi 3x",
-              "Unlimited Tamu Undangan",
-              "Custom Music Latar",
-              "Hitung Mundur Waktu Acara",
-              "Integrasi Google Maps",
             ]} />
         </div>
       </Section>
