@@ -185,17 +185,23 @@ export default function ThemePage() {
 
             {/* Cards */}
             <section className="flex flex-wrap items-center justify-center w-full gap-3 py-3 md:gap-7">
-                {themes.length > 0 ? (
-                    themes.map((theme) => (
-                        <TrendingThemeCard
-                            key={theme.id}
-                            title={theme.name}
-                            imgUrl={theme.imageurl}
-                            linkPreview={theme.previewurl || '/themes'}
-                        />
-                    ))
+                {isLoading ? (
+                    <p className="text-xl italic font-semibold animate-pulse">Loading...</p>
                 ) : (
-                    <p className="text-xl italic font-semibold">Loading...</p>
+                    <>
+                        {themes.length > 0 ? (
+                            themes.map((theme) => (
+                                <TrendingThemeCard
+                                    key={theme.id}
+                                    title={theme.name}
+                                    imgUrl={theme.imageurl}
+                                    linkPreview={theme.previewurl || '/themes'}
+                                />
+                            ))
+                        ) : (
+                            <p className="text-xl font-semibold">Tema belum tersedia 🥲</p>
+                        )}
+                    </>
                 )}
 
                 {themes.length > 0 && (
