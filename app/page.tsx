@@ -254,6 +254,7 @@ export default function Home() {
               "Custom Music Latar",
               "Hitung Mundur Waktu Acara",
               "Integrasi Google Maps",
+              "Galeri Foto"
             ]} />
 
           <PriceCard
@@ -271,7 +272,7 @@ export default function Home() {
               "Ucapan & RSVP",
               "QR Code Check-In",
               "Amplop Digital",
-              "Galeri Foto & Video"
+              "Galeri Foto"
             ]} />
 
           <PriceCard
@@ -289,7 +290,7 @@ export default function Home() {
               "Ucapan & RSVP",
               "QR Code Check-In",
               "Amplop Digital",
-              "Galeri Foto & Video"
+              "Galeri Foto"
             ]} />
         </div>
       </Section>
